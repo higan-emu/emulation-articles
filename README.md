@@ -32,6 +32,7 @@ request](https://github.com/byuu/byuu.net/pulls)!
           - [Dynamic Rate Control](./audio/dynamic-rate-control/)
       - Input
           - [Latency](./input/latency/)
+          - [Run-ahead](./input/run-ahead/)
       - Game Bugs
       - Design
       - Advice
