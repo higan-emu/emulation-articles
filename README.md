@@ -24,6 +24,7 @@ if you find any conversion errors, please [file an issue](https://github.com/byu
       - Video
           - [Color emulation](./video/color-emulation/)
       - Audio
+          - [Dynamic Rate Control](./audio/dynamic-rate-control/)
       - Input
       - Game Bugs
       - Design
