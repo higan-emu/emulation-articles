@@ -22,6 +22,7 @@ if you find any conversion errors, please [file an issue](https://github.com/byu
       - CPU
           - [ALU](./cpu/alu/)
       - Video
+          - [Color emulation](./video/color-emulation/)
       - Audio
       - Input
       - Game Bugs
