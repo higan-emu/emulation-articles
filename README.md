@@ -26,6 +26,7 @@ if you find any conversion errors, please [file an issue](https://github.com/byu
       - Audio
           - [Dynamic Rate Control](./audio/dynamic-rate-control/)
       - Input
+          - [Latency](./input/latency/)
       - Game Bugs
       - Design
       - Advice
