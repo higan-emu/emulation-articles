@@ -27,20 +27,20 @@ archival.
 The Super Game Boy 2 is an SNES cartridge that allows you to play Game Boy games
 on your SNES console:
 
-{{Super Game Boy 2 cartridge::/images/cartridges/boards/1.jpg}{link}}
+![Super Game Boy 2 cartridge](/images/cartridges/boards/1.jpg)
 
 But how is such a thing possible? Let's examine what's inside of the cartridge:
 
-{{Super Game Boy 2 PCB::/images/cartridges/boards/2.jpg}{link}}
+![Super Game Boy 2 PCB](/images/cartridges/boards/2.jpg)
 
 What you see here a complete Game Boy system built into a single chip, which is
-marked ||CPU SGB2||. After that, you have an interface between the Game Boy and
+marked `CPU SGB2`. After that, you have an interface between the Game Boy and
 the SNES, which also provides many enhancements by allow Game Boy games to
-access SNES hardware functionality, the ||ICD2-R|| chip. Next you have some
+access SNES hardware functionality, the `ICD2-R` chip. Next you have some
 dedicated RAM for buffering the Game Boy screen output into a format the SNES
-can display, the ||Sharp LH5164AN-10L|| chip, a region-lockout chip, the
-||F411B||, and finally, the "ROM image", which is typically the only contents of
-the "Super Game Boy 2.sfc" image, the ||SYS-SGB2-10|| mask ROM chip.
+can display, the `Sharp LH5164AN-10L` chip, a region-lockout chip, the
+`F411B`, and finally, the "ROM image", which is typically the only contents of
+the "Super Game Boy 2.sfc" image, the `SYS-SGB2-10` mask ROM chip.
 
 You also find a Game Boy cartridge slot poking up from the other side, which is
 how you connect Game Boy games to the SNES. And you also see a link port
@@ -55,7 +55,7 @@ be sent to your speakers.
 
 Other details: the other side of the board contains its own dedicated clock
 (oscillator) which is a 5x multiple of the original Game Boy clock rate, and
-inside of the ||CPU SGB2|| IC, there is a boot ROM that performs Nintendo
+inside of the `CPU SGB2` IC, there is a boot ROM that performs Nintendo
 licensing validation of the inserted Game Boy cartridge and display of the
 splash screen you see when turning on the Super Game Boy. Even the way the ROM
 appears inside the SNES memory map is determined based on the wiring of the
@@ -63,7 +63,7 @@ cartridge to the pins along the bottom of the PCB.
 
 At the time of this writing, [[bsnes:://byuu.org/bsnes]] is the only SNES
 emulator to fully emulate this cartridge. So how does it do it with just the
-||SYS-SGB2-10|| ROM image file?
+`SYS-SGB2-10` ROM image file?
 
 # Heuristics
 
@@ -74,7 +74,7 @@ internal header that tells you the name of the game, and some basic information
 about the cartridge. When you load SNES games, emulators try to decode this
 information to determine how to emulate the games.
 
-The title for the Super Game Boy 2 is ||Super GAMEBOY2||, and so when a game is
+The title for the Super Game Boy 2 is `Super GAMEBOY2`, and so when a game is
 loaded with that title, the code path to emulate the SGB2 is utilized.
 
 In bsnes' case, the emulator contains a complete Game Boy emulator inside of it.
@@ -83,17 +83,19 @@ version of the emulator used. bsnes also contains an emulation of the ICD-2
 interface chip that connects the Game Boy to the SNES.
 
 What happens next is that bsnes looks up a database entry describing the
-||SHVC-SGB2-01|| PCB, and finds this:
+`SHVC-SGB2-01` PCB, and finds this:
 
-  board: SHVC-SGB2-01
-    memory type=ROM content=Program
-      map address=00-7d,80-ff:8000-ffff mask=0x8000
-      map address=40-7d,c0-ff:0000-7fff mask=0x8000
-    processor identifier=ICD revision=2
-      map address=00-3f,80-bf:6000-67ff,7000-7fff
-      memory type=ROM content=Boot architecture=LR35902
-      oscillator
-  slot type=GameBoy
+```
+board: SHVC-SGB2-01
+  memory type=ROM content=Program
+    map address=00-7d,80-ff:8000-ffff mask=0x8000
+    map address=40-7d,c0-ff:0000-7fff mask=0x8000
+  processor identifier=ICD revision=2
+    map address=00-3f,80-bf:6000-67ff,7000-7fff
+    memory type=ROM content=Boot architecture=LR35902
+    oscillator
+slot type=GameBoy
+```
 
 # Databases
 
@@ -105,26 +107,28 @@ every game I've analyzed (over 1200 games and counting), and so this information
 is completed by looking up the game in my games database that is bundled with
 every copy of bsnes:
 
-  game
-    sha256:   e1db895a9da7ce992941c1238f711437a9110c2793083bb04e0b4d49b7915916
-    label:    スーパーゲームボーイ2
-    name:     Super Game Boy 2
-    region:   SHVC-SGB2-JPN
-    revision: SYS-SGB2-10
-    board:    SHVC-SGB2-01
-      memory
-        type: ROM
-        size: 0x80000
-        content: Program
-      memory
-        type: ROM
-        size: 0x100
-        content: Boot
-        manufacturer: Nintendo
-        architecture: LR35902
-        identifier: SGB2
-      oscillator
-        frequency: 20971520
+```
+game
+  sha256:   e1db895a9da7ce992941c1238f711437a9110c2793083bb04e0b4d49b7915916
+  label:    スーパーゲームボーイ2
+  name:     Super Game Boy 2
+  region:   SHVC-SGB2-JPN
+  revision: SYS-SGB2-10
+  board:    SHVC-SGB2-01
+    memory
+      type: ROM
+      size: 0x80000
+      content: Program
+    memory
+      type: ROM
+      size: 0x100
+      content: Boot
+      manufacturer: Nintendo
+      architecture: LR35902
+      identifier: SGB2
+    oscillator
+      frequency: 20971520
+```
 
 Finally, we have all of the pieces required and we can emulate the Super Game
 Boy 2!
@@ -149,21 +153,23 @@ popular form, are not the best way to preserve and emulate game cartridges.
 
 Here is the circuit board for the SNES game, Rockman X (Megaman X):
 
-{{Rockman X PCB front::/images/cartridges/boards/3.jpg}{link}}
+![Rockman X PCB front](/images/cartridges/boards/3.jpg)
 
 This looks simple enough. It's an 8mbit ROM chip and another 4mbit ROM chip,
 a 74LS chip to handle the memory mapping, and a lock-out chip, on the standard
-||SHVC-2A0N-01|| PCB:
+`SHVC-2A0N-01` PCB:
 
-  board: SHVC-2A0N-(01,10,11,20)
-    memory type=ROM content=Program
-      map address=00-7d,80-ff:8000-ffff mask=0x8000
-  map address=40-7d,c0-ff:0000-7fff mask=0x8000
+```
+board: SHVC-2A0N-(01,10,11,20)
+  memory type=ROM content=Program
+    map address=00-7d,80-ff:8000-ffff mask=0x8000
+map address=40-7d,c0-ff:0000-7fff mask=0x8000
+```
 
 Easy, right? Well, turn the PCB of the original Rockman X v1.0 release around
 and you'll find this:
 
-{{Rockman X PCB back::/images/cartridges/boards/4.jpg}{link}}
+![Rockman X PCB back](/images/cartridges/boards/4.jpg)
 
 Bodge wiring between one of the ROM chips and the 74LS memory mapper! Why in the
 world does every Rockman X v1.0 cartridge produce have hand-soldered wires on
@@ -171,12 +177,14 @@ the back of it?
 
 Let's take a look at what the memory map ends up looking like on this cartridge:
 
-  board: SHVC-2A0N-01#A
-    memory type=ROM content=Program
-      map address=00-2f,80-af:8000-ffff mask=0x8000
-  map address=40-6f,c0-ef:0000-ffff mask=0x8000
+```
+board: SHVC-2A0N-01#A
+  memory type=ROM content=Program
+    map address=00-2f,80-af:8000-ffff mask=0x8000
+map address=40-6f,c0-ef:0000-ffff mask=0x8000
+```
 
-Unlike the standard ||SHVC-2A0N-01|| configuration, the address map space for
+Unlike the standard `SHVC-2A0N-01` configuration, the address map space for
 30-3f,b0-bf:8000-ffff and 70-7f,f0-ff:0000-ffff are now left unmapped.
 
 The SNES address map is 24-bits, giving you 128mbit of addressable space. So
@@ -210,7 +218,7 @@ do things to subtly frustrate the player. You can read all about this on the
 excellent wiki,
 [[The Cutting Room Floor:://tcrf.net/Mega_Man_X#Copy_Protection]].
 
-What happened when Capcom produced a large run of games on the ||SHVC-2A0N-01||
+What happened when Capcom produced a large run of games on the `SHVC-2A0N-01`
 PCB was that 70-7f now had their smaller 4mbit ROM mirrored there. So in any
 instances where they tried writing a byte to the non-existent RAM read back the
 same by pure chance that the ROM contained the same byte there originally, their
@@ -218,7 +226,7 @@ severe anti-piracy checks would kick in.
 
 How did they make this mistake? For that, look to how SNES games were developed:
 
-{{SNES prototype PCB::/images/cartridges/boards/5.jpg}{link}}
+![SNES prototype PCB](/images/cartridges/boards/5.jpg)
 
 It was too expensive to produce mask ROMs for development, and so reprogrammable
 EEPROM chips were used on special prototype socketed ICs.
@@ -242,21 +250,23 @@ most gamers would be playing the v1.1 Japanese revision, or the English release.
 
 bsnes emulates this correctly by using its internal database:
 
-  game
-    sha256:   2626625f29e451746c8762f9e313d1140457fe68b27d36ce0cbee9b5c5be9743
-    label:    ロックマンエックス
-    name:     Rockman X
-    region:   SHVC-RX
-    revision: SHVC-RX-0
-    board:    SHVC-2A0N-01#A
-      memory
-        type: ROM
-        size: 0x180000
-        content: Program
-    note: Custom wiring on PCB
+```
+game
+  sha256:   2626625f29e451746c8762f9e313d1140457fe68b27d36ce0cbee9b5c5be9743
+  label:    ロックマンエックス
+  name:     Rockman X
+  region:   SHVC-RX
+  revision: SHVC-RX-0
+  board:    SHVC-2A0N-01#A
+    memory
+      type: ROM
+      size: 0x180000
+      content: Program
+  note: Custom wiring on PCB
+```
 
 I have chosen to denote non-typical PCBs with #n suffixes onto the PCB IDs. In
-this case, via ||SHVC-2A0N-01#A||.
+this case, via `SHVC-2A0N-01#A`.
 
 # Problem 2: incorrect headers
 
@@ -273,25 +283,29 @@ play many prototype games that have been preserved.
 
 Here is the PCB for E.V.O. - The Search for Eden for the SNES:
 
-{{SNES customizable PCB::/images/cartridges/boards/6.jpg}{link}}
+![SNES customizable PCB](/images/cartridges/boards/6.jpg)
 
-Ostensibly, this uses the ||SHVC-2A3M-01|| PCB:
+Ostensibly, this uses the `SHVC-2A3M-01` PCB:
 
-  board: SHVC-2A3M-(01,11,20)
-    memory type=ROM content=Program
-      map address=00-7d,80-ff:8000-ffff mask=0x8000
-    memory type=RAM content=Save
-  map address=70-7d,f0-ff:0000-7fff mask=0x8000
+```
+board: SHVC-2A3M-(01,11,20)
+  memory type=ROM content=Program
+    map address=00-7d,80-ff:8000-ffff mask=0x8000
+  memory type=RAM content=Save
+map address=70-7d,f0-ff:0000-7fff mask=0x8000
+```
 
 But note the silkscreened text at U4: MAD-1/R. The MAD-n are a series of memory
-mappers that have small differences between them. Nearly all ||SHVC-2A3M-01||
+mappers that have small differences between them. Nearly all `SHVC-2A3M-01`
 boards use the MAD-1. The extremely rare MAD-R has the following difference:
 
-  board: SHVC-2A3M-01#A
-    memory type=ROM content=Program
-      map address=00-3f,80-bf:8000-ffff mask=0x8000
-    memory type=RAM content=Save
-  map address=70-7d,f0-ff:0000-7fff mask=0x8000
+```
+board: SHVC-2A3M-01#A
+  memory type=ROM content=Program
+    map address=00-3f,80-bf:8000-ffff mask=0x8000
+  memory type=RAM content=Save
+map address=70-7d,f0-ff:0000-7fff mask=0x8000
+```
 
 In English: it only supports 16mbit ROMs instead of 32mbit ROMs, and doesn't
 mirror the 16mbits into the upper 16mbit regions of the address map.
@@ -307,7 +321,7 @@ data: battery-backed SRAM, EEPROM, or Flash memory. EEPROM comes in two sizes
 with a protocol that is not directly compatible, and Flash memory comes in three
 types with protocols that are also not compatible.
 
-{{Game Boy Advance PCB::/images/cartridges/boards/7.jpg}{link}}
+![Game Boy Advance PCB](/images/cartridges/boards/7.jpg)
 
 Nintendo attempted to make life easier for developers by providing code
 libraries for each type of memory, to give a standard interface to everything:
@@ -321,9 +335,9 @@ Game Boy Advance games do not contain internal headers to identify what type of
 save memory is used. What emulators do instead is when you load a game, they
 scan the entire contents of the ROM, looking for the identifying strings from
 Nintendo's libraries, to try and determine what kind save memory was used: if
-the developer used EEPROM, then one would expect to find the ||EEPROM_V|| string
-somewhere inside the ROM image. For Flash, ||FLASH(512,1M)_V||. For SRAM,
-||SRAM(_F)_V||.
+the developer used EEPROM, then one would expect to find the `EEPROM_V` string
+somewhere inside the ROM image. For Flash, `FLASH(512,1M)_V`. For SRAM,
+`SRAM(_F)_V`.
 
 You can probably guess where this is going: game developers edited the strings
 to feign being a different type of memory. Some developers included every save
@@ -392,9 +406,9 @@ is a good example of this.
 
 Here is the PCB to the SNES game, Pilotwings:
 
-{{SNES PCB with coprocessor::/images/cartridges/boards/8.jpg}{link}}
+![SNES PCB with coprocessor](/images/cartridges/boards/8.jpg)
 
-On this board, one finds the ||DSP1|| coprocessor. This is a NEC uPD7725 DSP
+On this board, one finds the `DSP1` coprocessor. This is a NEC uPD7725 DSP
 that is used to performed more advanced mathematical calculations than the SNES
 could reasonably handle in real-time. Inside of this chip is custom firmware
 used to implement various algorithms.
@@ -410,7 +424,7 @@ if you are up for some further reading.
 Or you can settle for this electron microscope scan of the insides of the DSP1B
 chip:
 
-{{Decapped NEC uPD7720 die::/images/cartridges/boards/9.jpg}{link}}
+![Decapped NEC uPD7720 die](/images/cartridges/boards/9.jpg)
 
 So what does an emulator do without this firmware? The only option is a
 high-level emulation of the algorithms it provides. This is often quite
@@ -435,7 +449,7 @@ each game.
 The Sega Genesis uses a 16-bit Motorola 68000 CPU, and so game ROMs for this
 system use 16-bit mask ROMs. Well, almost all games. But take F-22 Interceptor:
 
-{{F22 Interceptor cartridge::/images/cartridges/boards/10.jpg}{link}}
+![F22 Interceptor cartridge](/images/cartridges/boards/10.jpg)
 
 There exists a version of this game whose second ROM is an 8-bit mask ROM
 instead. What happens when you access an 8-bit ROM on a 16-bit CPU? In the case
