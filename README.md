@@ -15,6 +15,7 @@ the most important and useful information has been collected and preserved here.
       - Cartridges
           - [Boards](./cartridges/boards/)
       - Compact Discs
+          - [Structure](./compact-discs/structure/)
       - CPU
       - Video
       - Audio
