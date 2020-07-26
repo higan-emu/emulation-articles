@@ -17,6 +17,7 @@ the most important and useful information has been collected and preserved here.
       - Compact Discs
           - [Structure](./compact-discs/structure/)
       - CPU
+          - [ALU](./cpu/alu/)
       - Video
       - Audio
       - Input
