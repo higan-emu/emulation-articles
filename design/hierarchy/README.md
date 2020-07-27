@@ -160,18 +160,18 @@ own branches, or terminate as leaves of the tree. For the Super Nintendo, this
 tree might look something like this:
 
   - Super Nintendo
-      - Cartridge Port => Sufami Turbo
+      - Cartridge Port → Sufami Turbo
           - Sufami Turbo Port - A
           - Sufami Turbo Port - B
       - Expansion Port
-      - Controller Port 1 => Gamepad
-      - Controller Port 2 => Super Multitap
-          - Super Multitap Port - A => Twin Tap
-          - Super Multitap Port - B => Twin Tap
+      - Controller Port 1 → Gamepad
+      - Controller Port 2 → Super Multitap
+          - Super Multitap Port - A → Twin Tap
+          - Super Multitap Port - B → Twin Tap
           - Super Multitap Port - C
           - Super Multitap Port - D
       - CPU
-          - Revision => 2
+          - Revision → 2
 
 So in the above example, you can see how the tree expands when the Sufami Turbo
 and Super Multitap are connected to the system.

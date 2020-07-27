@@ -63,7 +63,7 @@ context switches, per emulated second.
 
 If your CPU only has one actual core, all of your threads will technically be
 running in serial anyway, and the OS will be performing context switches in
-kernel mode. Userland <> kernel mode transitions are *extremely* painful for
+kernel mode. Userland ↔ kernel mode transitions are *extremely* painful for
 CPUs, and in the best case scenario, you might manage to do this a few hundred
 thousand times per second. Presuming you weren't emulating anything at all.
 

@@ -36,9 +36,9 @@ For the SNES, the DSP can only directly communicate with the SMP, and the PPU
 can only directly communicate with the CPU. That gives us the following needed
 64-bit integers:
 
-* CPU <-> PPU
-* CPU <-> SMP
-* SMP <-> DSP
+* CPU ↔ PPU
+* CPU ↔ SMP
+* SMP ↔ DSP
 
 Say we want to track the relative time between the CPU, which runs at
 21,477,272hz, and the SMP, which runs at 24,576,000hz. We will have a scheduler
@@ -59,12 +59,12 @@ The key detail here is that the CPU subtracts `N * SMP_frequency`, and the SMP
 adds `N * CPU_frequency`. We keep relative time by stepping by a multiple of the
 *other* thread's frequency.
 
-The CPU <-> PPU happen to run off the same 21,477,272hz clock, so a slight
+The CPU ↔ PPU happen to run off the same 21,477,272hz clock, so a slight
 optimization can be made in that case: we can omit the scalar: whenever the CPU
 steps by N clocks, we subtract N from `cpu_ppu`; and whenever the PPU steps by N
 clocks, we add N to `cpu_ppu`.
 
-There is an issue of overflow / underflow here, especially for the CPU <-> SMP
+There is an issue of overflow / underflow here, especially for the CPU ↔ SMP
 example, which is why we use a 64-bit signed integer. This gives us 63-bits of
 usable precision in either direction, and 2^63 / 24,576,000 tells us that the
 CPU can advance up to 375,299,968,947 clocks ahead of the SMP before `cpu_smp`
