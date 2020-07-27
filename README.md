@@ -34,6 +34,7 @@ request](https://github.com/byuu/byuu.net/pulls)!
           - [Latency](./input/latency/)
           - [Run-ahead](./input/run-ahead/)
       - Game Bugs
+          - [SNES](./game-bugs/snes/)
       - Design
       - Advice
   - Resources
