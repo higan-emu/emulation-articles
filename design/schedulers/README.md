@@ -143,14 +143,10 @@ of time distance should be good enough for virtually every use case.
 # Implementation
 
 My emulator [bsnes](https://github.com/bsnes-emu/bsnes) uses a relative scheduler. You
-may find its implementation on GitHub here:
-
-https://github.com/bsnes-emu/bsnes/blob/3808e8e25fa30515fb5888c0ef5063cf415edd96/bsnes/sfc/sfc.hpp
+may find its implementation [on GitHub](https://github.com/bsnes-emu/bsnes/blob/3808e8e25fa30515fb5888c0ef5063cf415edd96/bsnes/sfc/sfc.hpp).
 
 My emulator [higan](https://github.com/higan-emu/higan) uses an absolute scheduler. You
-may find its implementation on GitHub here:
-
-https://github.com/higan-emu/higan/tree/2a110b44631f01c0c5d64fab6a782320d8fb0ec6/higan/emulator/scheduler
+may find its implementation [on GitHub](https://github.com/higan-emu/higan/tree/2a110b44631f01c0c5d64fab6a782320d8fb0ec6/higan/emulator/scheduler) too.
 
 As you can see, the latter is considerably more complex, and for the simple case
 of the Super Nintendo, it is more performant to use a relative scheduler.
