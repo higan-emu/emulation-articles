@@ -1,11 +1,11 @@
 # byuu's emulator development resources
 
 After byuu/near retired in July 2020,
-he took his various websites offline
-since he was no longer willing to maintain them.
+he took this website offline
+since he was no longer willing to maintain it.
 
 However,
-since they contained a lot of useful information and wisdom
+since it contained a lot of useful information and wisdom
 about the design and implementation of emulators,
 the most important and useful information has been collected and preserved here.
 
