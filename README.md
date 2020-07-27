@@ -1,4 +1,4 @@
-# byuu's emulator development resources (archived)
+# byuu's emulator development resources
 
 After byuu/near retired in July 2020,
 he took his various websites offline
