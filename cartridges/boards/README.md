@@ -61,7 +61,7 @@ splash screen you see when turning on the Super Game Boy. Even the way the ROM
 appears inside the SNES memory map is determined based on the wiring of the
 cartridge to the pins along the bottom of the PCB.
 
-At the time of this writing, [[bsnes:://byuu.org/bsnes]] is the only SNES
+At the time of this writing, [bsnes](https://github.com/bsnes-emu/bsnes) is the only SNES
 emulator to fully emulate this cartridge. So how does it do it with just the
 `SYS-SGB2-10` ROM image file?
 
@@ -142,7 +142,7 @@ description is performed.
 And herein lies the major problem faced when emulating cartridges as ROM files:
 heuristics are just best guesses. Not only is the internal header information
 incomplete, sometimes it's just plain wrong, perhaps even intentionally as a
-crude form of anti-piracy, and sometimes some game systems don't even //have//
+crude form of anti-piracy, and sometimes some game systems don't even *have*
 internal headers to work with.
 
 From this point in the article, I'm going to talk about all of the ways
@@ -216,7 +216,7 @@ would try to write to the 70-7f bank regions, and if it successfully read back
 the value written, it would consider the game as being played on a copier, and
 do things to subtly frustrate the player. You can read all about this on the
 excellent wiki,
-[[The Cutting Room Floor:://tcrf.net/Mega_Man_X#Copy_Protection]].
+[The Cutting Room Floor](https://tcrf.net/Mega_Man_X#Copy_Protection).
 
 What happened when Capcom produced a large run of games on the `SHVC-2A0N-01`
 PCB was that 70-7f now had their smaller 4mbit ROM mirrored there. So in any
@@ -240,8 +240,8 @@ very costly lesson was undoubtedly learned. This mistake was corrected
 immediately in the Rockman X v1.1 batch of games, as well as the US Megaman X
 game cartridges.
 
-So what does this have to do with emulation? Simple: there is //absolutely no
-way// to know about the presence of this bodge wiring from looking at Nintendo's
+So what does this have to do with emulation? Simple: there is *absolutely no
+way* to know about the presence of this bodge wiring from looking at Nintendo's
 internal header.
 
 For many years, SNES emulators would run Rockman X with the 4mbit ROM mirrored,
@@ -399,7 +399,7 @@ Chinese aftermarket for Famicom games have added literally hundreds of unique
 mappers, for instance, and often there's no way to describe it.
 
 And we keep finding new cases to this day! The recently discovered
-[[Konami VRC5:://arstechnica.com/gaming/2019/08/collector-unearths-long-lost-8-bit-konami-games-dumps-them-for-emulation/]]
+[Konami VRC5](https://arstechnica.com/gaming/2019/08/collector-unearths-long-lost-8-bit-konami-games-dumps-them-for-emulation/)
 is a good example of this.
 
 # Problem 6: coprocessor firmware
@@ -418,7 +418,7 @@ When ROM images are created for Pilotwings, this coprocessor data is missing.
 In fact, it was a substantial effort involving thousands of dollars to decap
 these NEC DSP chips and extract the firmware from within them. A good overview
 of that is available
-[[here:://www.tested.com/tech/gaming/44376-16_bit-time-capsule-how-emulator-bsnes-makes-a-case-for-software-preservation/]],
+[here](https://www.tested.com/tech/gaming/44376-16_bit-time-capsule-how-emulator-bsnes-makes-a-case-for-software-preservation/),
 if you are up for some further reading.
 
 Or you can settle for this electron microscope scan of the insides of the DSP1B
