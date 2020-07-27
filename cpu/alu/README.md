@@ -8,7 +8,7 @@ type a given machine is capable of using.
 Of course, to template these, you will need a portable way to extract the
 highest bit of a given integer type for the overflow and carry masks, eg:
 
-```
+```cpp
 natural sign = (natural(0) - 1 >> 1) + 1;
 ```
 
@@ -18,7 +18,7 @@ value & bit will subtract a desired bit, rather than value >> bit - 1 & 1.
 
 # ADC: add with carry
 
-```
+```cpp
 auto adc(natural target, natural source, boolean carry) -> uint8 {
     natural result   = target + source + carry;
     natural carries  = target ^ source ^ result;
@@ -39,7 +39,7 @@ have confused this, and named their implementations SBC (subtract with carry),
 even though that is a different operation. A notable example here is the Toshiba
 TLCS900H.
 
-```
+```cpp
 auto sbb(natural target, natural source, boolean carry) -> uint8 {
     natural result   = target - source - carry;
     natural carries  = target ^ source ^ result;
@@ -55,7 +55,7 @@ auto sbb(natural target, natural source, boolean carry) -> uint8 {
 
 ## SBB from ADC
 
-```
+```cpp
 auto sbb(natural target, natural source, boolean carry) -> uint8 {
     natural result = adc(target, ~source, !carry);
 
@@ -71,7 +71,7 @@ auto sbb(natural target, natural source, boolean carry) -> uint8 {
 The 6502 series of processors (MOS6502, Ricoh 6502, HuC6280, WDC65816) use carry
 rather than borrow for subtraction.
 
-```
+```cpp
 auto sbc(natural target, natural source, boolean carry) -> uint8 {
     natural result   = target - source - !carry;
     natural carries  = target ^ ~source ^ result;
@@ -89,7 +89,7 @@ auto sbc(natural target, natural source, boolean carry) -> uint8 {
 
 The reason for this becomes clear when looking at an alternate implementation:
 
-```
+```cpp
 auto sbc(natural target, natural source, boolean carry) -> uint8 {
     return adc(target, ~source, carry);
 }

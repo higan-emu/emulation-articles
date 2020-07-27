@@ -56,7 +56,7 @@ systems one might wish to emulate.
 As mentioned above, run-ahead is a time-shifting technique. Let's first look at
 a standard emulator run loop:
 
-```
+```cpp
 void Emulator::runFrame() {
     input.poll();
     auto [videoFrame, audioFrames] = emulator.run();
@@ -72,7 +72,7 @@ off input, which stacks on top of run-ahead's latency reduction.)
 
 Implementing run-ahead changes the run-loop like so:
 
-```
+```cpp
 void Emulator::runFrameAhead(unsigned int runAhead) {
     if(runAhead == 0) return runFrame();  //sanity check
 

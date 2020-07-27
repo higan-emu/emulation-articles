@@ -253,7 +253,7 @@ delve into audio DSP in a later article, but for now, here's a simple cubic
 resampler. This code is just rather standard interpolation, it's not too
 important to delve into exactly how it works here.
 
-```
+```cpp
 auto Cubic::reset(double inputFrequency, double outputFrequency, uint queueSize) -> void {
     this->inputFrequency = inputFrequency;
     this->outputFrequency = outputFrequency ? outputFrequency : this->inputFrequency;
@@ -306,7 +306,7 @@ We want to support several audio APIs (eg waveOut, DirectSound, OSS, etc), and
 the basic method of controlling the resampling ratio can be abstracted to a base
 class:
 
-```
+```cpp
 auto Audio::output(const double samples[]) -> void {
     if(!instance->dynamic) return instance->output(samples);
 
@@ -339,7 +339,7 @@ OSS is the tried and true classic audio interface for *nix systems. While rather
 deprecated on Linux, it is available through an emulation layer there. It also
 works very well under the BSDs.
 
-```
+```cpp
 auto AudioOSS::level() -> double override {
     audio_buf_info info;
     ioctl(_fd, SNDCTL_DSP_GETOSPACE, &info);
@@ -364,7 +364,7 @@ Here, SNDCTL_DSP_GETOSPACE lets us determine the buffer fill position.
 waveOut is perhaps the oldest audio API on Windows, and yet it turns out to have
 some of the most reliable buffer polling of any API on the platform. Go figure.
 
-```
+```cpp
 auto CALLBACK waveOutCallback(HWAVEOUT handle, UINT message, DWORD_PTR userData, DWORD_PTR, DWORD_PTR) -> void {
     auto instance = (AudioWaveOut*)userData;
     if(instance->blockQueue > 0) InterlockedDecrement(&instance->blockQueue);

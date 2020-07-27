@@ -20,7 +20,7 @@ reading said I/O register.
 Most emulators will be designed to poll the real hardware devices once per
 frame, in a run loop that looks something like this:
 
-```
+```cpp
 void Program::run() {
         while(stopped() == false) {
         hardware.pollInputs();
@@ -31,9 +31,9 @@ void Program::run() {
 ```
 
 In this case, `hardware.pollInputs()` will query DirectInput, XInput2, SDL, or
-    whatever hardware input APIs are available, and cache the results for later use:
+whatever hardware input APIs are available, and cache the results for later use:
 
-```
+```cpp
 void Hardware::pollInputs() {
     keyStates = directInput.pollKeyboard();
 }
@@ -46,7 +46,7 @@ the program.
 Inside the emulation core, when the memory-mapped I/O register for gamepad
 states is read, the cached states are returned:
 
-```
+```cpp
 uint8_t Emulator::pollGamepad() {
         uint8_t data = 0;
     data |= program.readInput(GAMEPAD_UP  ) << 0;
@@ -59,7 +59,7 @@ uint8_t Emulator::pollGamepad() {
 This is done by the program translating the emulated inputs to mapped hardware
 inputs:
 
-```
+```cpp
 bool Program::readInput(uint inputID) {
     if(inputID == GAMEPAD_UP  ) return hardware.keyStates[KEY_UP];
     if(inputID == GAMEPAD_DOWN) return hardware.keyStates[KEY_DOWN];
@@ -70,7 +70,7 @@ bool Program::readInput(uint inputID) {
 Finally, `video.drawFrame()` will take the emulated video frame and output it
 to the onscreen window for the program, using Direct3D, OpenGL, SDL, etc:
 
-```
+```cpp
 void Video::drawFrame() {
     direct3D.draw(program.window, emulator.frame, emulator.width, emulator.height);
 }
@@ -171,7 +171,7 @@ can short-circuit doing the actual polling if called too frequently.
 
 This new design would look something like this:
 
-```
+```cpp
 void Hardware::pollInputs() {
     static uint64_t lastPollTime = 0;
     uint64_t thisPollTime = getHostMachineCurrentTimestampInMilliseconds();

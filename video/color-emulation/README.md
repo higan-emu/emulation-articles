@@ -57,7 +57,7 @@ Example:
 
 In code form:
 
-```
+```cpp
 uint8 red = r << 5 | r << 2 | r >> 1
 //rrr00000 | 000rrr00 | 000000rr -> rrrrrrrr
 ```
@@ -85,7 +85,7 @@ The main difference between CRTs and PC LCD monitors is the substantially
 reduced black levels, which can only be compensated for slightly through the use
 of a gamma curve:
 
-```
+```cpp
 //SNES colors are in RGB555 format, so there are 32 levels for each channel
 static const uint8 gammaRamp[32] = {
     0x00, 0x01, 0x03, 0x06, 0x0a, 0x0f, 0x15, 0x1c,
@@ -118,7 +118,7 @@ Of course, if you use those colors on a standard PC monitor, the result is a
 technicolor nightmare. Thankfully, we can compensate for this as well to produce
 rather natural colors:
 
-```
+```cpp
 double lcdGamma = 4.0, outGamma = 2.2;
 double lb = pow(B / 31.0, lcdGamma);
 double lg = pow(G / 31.0, lcdGamma);
@@ -143,7 +143,7 @@ the result was only a slight bit of washing out of the colors.
 
 An algorithm that is quite popular with Game Boy Color emulators is as follows:
 
-```
+```cpp
 R = (r * 26 + g *  4 + b *  2);
 G = (         g * 24 + b *  8);
 B = (r *  6 + g *  4 + b * 22);
