@@ -36,6 +36,10 @@ request](https://github.com/byuu/byuu.net/pulls)!
       - Game Bugs
           - [SNES](./game-bugs/snes/)
       - Design
+          - [Cooperative Threading - Overview](./design/cooperative-threading/)
+          - [Cooperative Threading - Serialization](./design/cooperative-serialization/)
+          - [Emulator Hierarchy](./design/hierarchy/)
+          - [Schedulers](./design/schedulers/)
       - Advice
           - [We Stand on the Shoulders of Giants](./advice/shoulders-of-giants/)
   - Resources
