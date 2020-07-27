@@ -32,6 +32,8 @@ This includes the NEC uPD7720, uPD7725, and uPD96050 chips.
   - [uPD7720 official datasheet](/datasheets/upd7720/UPD7720-NEC.pdf)
   - [uPD7720A official datasheet](/datasheets/upd7720/UPD77C20A_NEC.pdf)
 
+Here is some additional information about these chips:
+
   - [Preliminary overview](/datasheets/upd7720/1981-uPD7720-DSP-Preliminary.pdf)
   - [Technical manual](/datasheets/upd7720/1982-uPD7720-DSP-TechnicalManual.pdf)
   - [Datasheet](/datasheets/upd7720/1983-uPD7720-DSP-Datasheet.pdf)
