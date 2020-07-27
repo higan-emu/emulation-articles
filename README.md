@@ -37,4 +37,4 @@ request](https://github.com/byuu/byuu.net/pulls)!
       - Design
       - Advice
   - Resources
-      - Datasheets
+      - [Datasheets](./datasheets/)
