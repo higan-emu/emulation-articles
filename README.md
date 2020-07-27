@@ -37,5 +37,6 @@ request](https://github.com/byuu/byuu.net/pulls)!
           - [SNES](./game-bugs/snes/)
       - Design
       - Advice
+          - [We Stand on the Shoulders of Giants](./advice/shoulders-of-giants/)
   - Resources
       - [Datasheets](./datasheets/)
