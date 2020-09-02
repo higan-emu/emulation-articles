@@ -178,7 +178,7 @@ jump button released, and all subsequent visual frames have the jump button
 pressed.
 
 # Overhead
-This technique seems ](ke a clear), so what's the catch? Mainly, just
+This technique seems like a clear win, so what's the catch? Mainly, just
 overhead. You cannot offload frame generation to a multi-core CPU, because each
 frame has to be rendered in-order, one at a time. In other words, it's a serial
 process.
@@ -189,7 +189,7 @@ setting of 4, you have to run the Super Nintendo and generate a full five frames
 worth of video and audio data before outputting just one frame. This means that
 it has five times the overhead of running the emulator without run-ahead
 
-There are tricks ](at can be) to reduce the overhead: specifically, because
+There are tricks that can be done to reduce the overhead: specifically, because
 the frames are not displayed onscreen, you do not have to emulate the video
 generation. In other words, you treat it similarly to frame-skipping. Since
 video is often one of the most expensive portions of emulation, this can greatly
