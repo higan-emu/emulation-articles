@@ -22,7 +22,7 @@ emulator hierarchy: lists and trees.
 
 The primary reason we need a hierarchy is because system states are not static.
 One might describe the Super Nintendo as having a cartridge port, an expansion
-port, and two cartridge ports. But then take the Sufami Turbo adapter:
+port, and two controller ports. But then take the Sufami Turbo adapter:
 
 ![Sufami Turbo](/images/design/hierarchy/sufami-turbo.jpg)
 
