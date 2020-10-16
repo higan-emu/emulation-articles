@@ -51,7 +51,7 @@ just standard gamepads.
 
 # Hard-coding
 
-The naive approach taken by most standalone, single-system emulators, is to
+The naïve approach taken by most standalone, single-system emulators, is to
 hard-code everything into their user interfaces for the specific system they're
 working on.
 
@@ -134,9 +134,9 @@ A similar situation could occur for the Super Multitap by adding more controller
 ports to the list.
 
 While this works, the problem is that there is no direct hierarchy here: it is
-not clear at all that the Sufami Turbo slots are descendents of the base Super
+not clear at all that the Sufami Turbo slots are descendants of the base Super
 Nintendo cartridge that's currently connected, or that the extra controller port
-slots are descendents of the Super Multitap.
+slots are descendants of the Super Multitap.
 
 It can also get rather messy: we didn't expose the expansion port above. What is
 an expansion port? It depends on the system. It could be a CD-ROM drive as with
@@ -216,7 +216,7 @@ struct SuperNintendo : Emulator { ... };
 ```
 
 But at this point, there's really no reason not to use the tree-style instead in
-order to express descendents. The reason to have multiple lists for each type of
+order to express descendants. The reason to have multiple lists for each type of
 cartridge port, controller port, controller, etc is that it provides a sort of
 middle-ground between hard-coding everything, and requiring a 100%
 fully-abstracted design.
