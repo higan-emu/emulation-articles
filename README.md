@@ -35,6 +35,8 @@ request](https://github.com/byuu/byuu.net/pulls)!
           - [Run-ahead](./input/run-ahead/)
       - Game Bugs
           - [SNES](./game-bugs/snes/)
+      - Emulation Bugs
+          - [SNES](./emulation-bugs/snes/)
       - Design
           - [Cooperative Threading - Overview](./design/cooperative-threading/)
           - [Cooperative Threading - Serialization](./design/cooperative-serialization/)
