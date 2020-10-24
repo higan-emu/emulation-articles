@@ -34,10 +34,7 @@ unless auto joypad polling is correct.
 
 # World Masters Golf
 
-Inputs fail to register
-and holding D-pad only moves the cursor once
-(instead of continuously)
+On the main menu,
+holding the D-pad moves the cursor continuously
+instead of only once,
 unless auto joypad polling is correct.
-
-TODO: I don't know what versions of what emulators
-exhibit this behaviour, more testing needed.
