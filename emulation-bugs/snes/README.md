@@ -6,6 +6,16 @@ others require exact emulation of subtle behaviour
 
 Inputs do not work unless auto joypad polling is correct.
 
+# SpellCraft - Acts of Valor (USA) (Proto)
+
+At the title screen,
+pressing B may bring up the main menu
+and automatically select New Game
+rather than letting you choose a different option.
+
+This occurs if the HVBJOY registor
+does not correctly report whether auto joypad polling is active.
+
 # Super Conflict
 
 Sends random inputs even with no buttons pressed,
