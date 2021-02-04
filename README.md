@@ -1,11 +1,7 @@
 # byuu's emulator development resources
 
-After byuu/near retired in July 2020,
-he took this website offline
-since he was no longer willing to maintain it.
-
-However,
-since it contained a lot of useful information and wisdom
+This website is an archived copy of byuu.net as it existed when it was closed on July 2020.
+Since it contained a lot of useful information and wisdom
 about the design and implementation of emulators,
 the most important and useful information has been collected and preserved here.
 
