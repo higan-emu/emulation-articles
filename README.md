@@ -6,12 +6,8 @@ about the design and implementation of emulators,
 the most important and useful information has been collected and preserved here.
 
 This content has been manually converted to Markdown for ease of presentation;
-if you find any conversion errors, please [file an
-issue](https://github.com/byuu/byuu.net).
-
-If you'd like to contribute an article of your own about some aspect of emulator
-design or implementation, please [create a pull
-request](https://github.com/byuu/byuu.net/pulls)!
+if you find any conversion errors, please
+[file an issue](https://github.com/higan-emu/emulation-articles).
 
 ## Contents
 

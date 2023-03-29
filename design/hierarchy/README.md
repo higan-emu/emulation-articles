@@ -379,6 +379,6 @@ Shameless plug time:
 
 While you're here, I'm currently looking for feedback on how improve the
 usability of higan's new tree-based design. If you'd like to help, please
-check out the [higan user guide](https://byuu.org/higan/user-guide), give
+check out the [higan user guide](https://github.com/higan-emu/higan/wiki/User-Guide), give
 higan v107 a run, and then
 [leave some feedback here](https://github.com/higan-emu/higan/issues). Thanks!
