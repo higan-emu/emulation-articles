@@ -26,7 +26,7 @@ Also, at the title screen,
 tapping B should open the main menu,
 but holding it for more than a few frames
 *should* automatically select "New Game".
-If the HVBJOY registor
+If the HVBJOY register
 does not correctly report whether auto joypad polling is active,
 this behaviour may be off in either direction
 (you can't tap B quickly enough to open the menu
