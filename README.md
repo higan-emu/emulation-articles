@@ -1,4 +1,4 @@
-# byuu's emulator development resources
+# Near's emulator development resources
 
 This website is an archived copy of byuu.net as it existed when it was closed on July 2020.
 Since it contained a lot of useful information and wisdom
