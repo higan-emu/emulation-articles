@@ -33,6 +33,27 @@ this behaviour may be off in either direction
 without selecting "New Game",
 or holding B will never select "New Game").
 
+# Sufami Turbo (Japan)
+
+Not necessarily an emulation bug, but a hazard.
+Unlike other games with special hardware,
+there's no value in the internal header to tell you that
+a game accepts Sufami Turbo mini-cartridges.
+Instead, the emulator has to guess whether
+something "looks like" the Sufami Turbo base cartridge.
+
+You could detect it by the size and hash of the ROM,
+by the game's internal name (`ADD-ON BASE CASSETE`),
+or by the text at the beginning of the ROM (`BANDAI SFC-ADX`).
+You might be tempted
+to use the four-letter game code in the extended header
+to identify the cartridge,
+but the basic header does not set the "has extended header" flag,
+but beware:
+this has the game code set to `A9PJ`,
+which is shared with the game
+"Bishoujo Senshi Sailor Moon SuperS - Fuwafuwa Panic".
+
 # Super Conflict (USA)
 
 Sends random inputs even with no buttons pressed,
