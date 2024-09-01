@@ -82,6 +82,18 @@ Inputs fire on their own,
 or menu items sometimes skipped
 unless auto joypad polling is correct.
 
+# Wolverine - Adamantium Rage (USA)
+
+This game hangs after showing the developer and publisher logos,
+before it gets to the title screen,
+unless auto joypad polling is correct.
+
+Strangely,
+the European version
+and the Japanese version
+(which is just called *Wolverine (Japan)*)
+can work fine even if the USA version is broken.
+
 # World Masters Golf (Europe)
 
 On the main menu,
