@@ -19,7 +19,7 @@ unless joypad auto polling is correct.
 
 After starting a new game,
 walking to the red "Get Password" orb and pressing B
-will automatically dismiss the password screen
+will show and automatically dismiss the password screen
 unless joypad auto polling is correct.
 
 Also, at the title screen,
