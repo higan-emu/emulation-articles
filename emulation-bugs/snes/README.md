@@ -100,3 +100,17 @@ On the main menu,
 holding the D-pad moves the cursor continuously
 instead of only once,
 unless auto joypad polling is correct.
+
+# Zenkoku Koukou Soccer 2 (Japan)
+
+During a match,
+holding the Start button will pause the game about two thirds of the time,
+and one third of the time the game will immediately unpause itself.
+If auto joypad polling is incorrect,
+the game might always pause reliably,
+or never pause reliably.
+
+This is because when the game is paused,
+it repeatedly re-reads the joypad registers,
+and can wind up reading partially-complete data
+during the auto-polling process.

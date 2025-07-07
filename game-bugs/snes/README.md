@@ -67,3 +67,13 @@ always break, or only periodically break. We've seen all three in practice.
 As emulators are deterministic in nature (for the sake of tool-assisted
 speedruns and bug reproducability), this bug is likely to either always occur or
 never occur under emulation.
+
+# Zenkoku Koukou Soccer 2
+
+When a match is paused,
+the game reads the joypad registers in a tight loop,
+even during the auto-joypad polling process,
+and so can get confused about which buttons are actually pressed.
+As a result,
+when you hold the Start button to pause the game,
+about 30% of the time it immediately unpauses itself.
